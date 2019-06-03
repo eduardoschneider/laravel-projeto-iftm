@@ -23,8 +23,76 @@
     .fa-btn {
       margin-right: 6px;
     }
+	
+	.navbar {
+		border: none !important;
+		border-radius:0 !important;
+		width:100%;
+		height:250px;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		background: url("../../../bg.jpg") no-repeat center center;
+		background-size:cover;
+	}
+	
+	.navbar .login a {
+		margin-top:15px;
+		font-size:12px;
+		color:white !important;
+		text-shadow:0.5px 0.5px 2px black;
+		background-color:#3fa6cc;
+		padding:6px;
+		width:80px;
+		text-align:center;
+		margin-right:28px;
+		border-radius:9px;
+	}
+	
+	.navbar .login a:hover {
+		background-color:#297793 !important;
+
+	}
+
+	.navbar .options a {
+		color:white !important;
+		font-size:15px;
+		text-shadow: 1px 1px 1px #000;
+	}
+
+	.logged a {
+		
+		font-size:16px;
+		margin-top:5px;	
+		float:left;
+		color:white !important;
+	}
+
+	.navbar .logout a {
+		font-size:11px;
+		color:white !important;
+		text-shadow:0.5px 0.5px 2px black;
+		background-color:#a42323;
+		padding:7px;
+		margin-right:8px;
+		border-radius:9px;
+		margin-top:13px;
+	}
+	
+	.navbar .logout a:hover {
+		background-color:#770707 !important;
+
+	}
+
+	.logged, .logout {
+		position:absolute;
+		
+		right:-700px;
+}
+
   </style>
 </head>
+
 <body id="app-layout">
 <nav class="navbar navbar-default">
   <div class="container">
@@ -37,47 +105,35 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
-      <!-- Branding Image -->
-      <a class="navbar-brand" href="{{ url('/') }}">
-        CRUD Demo
-      </a>
     </div>
 
     <div class="collapse navbar-collapse" id="app-navbar-collapse">
       <!-- Left Side Of Navbar -->
       <ul class="nav navbar-nav">
-        <li><a href="{{ url('/') }}">Home</a></li>
-        <li><a href="{{ url('/page') }}">Page</a></li>
+        <li class="login"><a href="{{ url('/') }}">Home</a></li>
+        <li class="login"><a href="{{ url('/page') }}">Dados</a></li>
       </ul>
-
       <!-- Right Side Of Navbar -->
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav">
         <!-- Authentication Links -->
         @if (Auth::guest())
-          <li><a href="{{ url('/login') }}">Login</a></li>
-          <li><a href="{{ url('/register') }}">Register</a></li>
+          <li class="login"><a href="{{ url('/login') }}">Login</a></li>
+          <li class="login"><a href="{{ url('/register') }}">Registrar</a></li>
         @else
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              {{ Auth::user()->name }} <span class="caret"></span>
+          <li class="logged">
+            <a href="#">
+              {{ Auth::user()->name }}
             </a>
+		</li>
+		<li class="logout">
+			<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+			  Logout
+			</a>
 
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();"
-                >
-                  Logout
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
-              </li>
-            </ul>
-          </li>
+			<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+				{{ csrf_field() }}
+			</form>
+		  </li>
         @endif
       </ul>
     </div>

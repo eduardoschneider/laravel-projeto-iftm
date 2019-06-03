@@ -6,7 +6,7 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
           <div class="panel-heading">
-            Welcome
+            Bem-vindo
             @if (auth()->check())
               <strong>
                 {{ auth()->user()->name }}
@@ -16,13 +16,13 @@
 
           <div class="panel-body">
             @if (auth()->guest())
-              To access <a href="{{ route('page.index') }}">Page</a> menu,
-              you need to
-              <a href="/register">register</a> new account.
-              You will automatically logged in after registered.
+              Para acessar os <a href="{{ route('page.index') }}">Dados</a>,
+              você precisa se
+              <a href="/register">registrar</a>.<br/>
+              Você será automaticamente logado após registrado.
             @else
-              Now, you can access
-              <a href="{{ route('page.index') }}">Page</a> menu
+              Agora você pode acessar os
+              <a href="{{ route('page.index') }}">dados</a>!
             @endif
           </div>
         </div>
