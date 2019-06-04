@@ -8,13 +8,12 @@
       <div class="clearfix">
         <div class="pull-left">
           <div class="lead">
-            <strong>Edit page</strong>
-            <small>{{ $page->title }}</small>
+            <strong>Edição de registro: {{ $page->name }}</strong>
           </div>
         </div>
         <div class="pull-right">
-          <button type="submit" class="btn btn-success">Save</button>
-          <a href="/page" class="btn btn-default">Back to list</a>
+          <button type="submit" class="btn btn-success">Salvar</button>
+          <a href="/page" class="btn btn-danger">Voltar</a>
         </div>
       </div>
       <hr>

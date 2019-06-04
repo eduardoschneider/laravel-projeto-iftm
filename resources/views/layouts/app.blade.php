@@ -23,21 +23,26 @@
     .fa-btn {
       margin-right: 6px;
     }
+
 	
 	.navbar {
-		border: none !important;
+	  background: url("../../../bg2.jpg") no-repeat center center;
+	  background-size:cover;
+	  background-attachment: fixed;
+	    overflow:hidden;
+		border: 1px solid black;
 		border-radius:0 !important;
 		width:100%;
 		height:250px;
 		display:flex;
 		align-items:center;
 		justify-content:center;
-		background: url("../../../bg.jpg") no-repeat center center;
-		background-size:cover;
 	}
 	
 	.navbar .login a {
-		margin-top:15px;
+		border: 1px solid #154b5f;
+		margin-top:55px;
+		margin-left:30px;
 		font-size:12px;
 		color:white !important;
 		text-shadow:0.5px 0.5px 2px black;
@@ -63,13 +68,17 @@
 	.logged a {
 		
 		font-size:16px;
-		margin-top:5px;	
+		margin-top:47px;
+			right:300px;
 		float:left;
 		color:white !important;
 	}
 
 	.navbar .logout a {
 		font-size:11px;
+		right:300px;
+		top:40px;
+		border: 1px solid #770707;
 		color:white !important;
 		text-shadow:0.5px 0.5px 2px black;
 		background-color:#a42323;
@@ -89,7 +98,39 @@
 		
 		right:-700px;
 }
+	.panel-heading {
+		color: white !important;
+		background-color:#22102c !important;
+		border:1px solid black;
+		border-color:black !important;
+		border-top:none;
+		border-left:none;
+		border-right:none;
+	}
+	
+	.panel {
+		
+		border:1px solid black !important;
+	}
+	
+	.btn-alterar {
+		background-color
+	}
 
+.btn-login {
+	width:100px;
+	background-color:#3fa6cc;
+	border: 1px solid #154b5f;
+}
+
+.btn-danger {
+	border: 1px solid #154b5f;
+}
+
+.btn-primary {
+		background-color:#3fa6cc;
+	border: 1px solid #154b5f;
+}
   </style>
 </head>
 
@@ -108,13 +149,14 @@
     </div>
 
     <div class="collapse navbar-collapse" id="app-navbar-collapse">
+	<ul class="nav navbar-nav">
+		<img src="../../../logo.gif" width="200px"/>
+	</ul>
       <!-- Left Side Of Navbar -->
       <ul class="nav navbar-nav">
         <li class="login"><a href="{{ url('/') }}">Home</a></li>
         <li class="login"><a href="{{ url('/page') }}">Dados</a></li>
-      </ul>
-      <!-- Right Side Of Navbar -->
-      <ul class="nav navbar-nav">
+
         <!-- Authentication Links -->
         @if (Auth::guest())
           <li class="login"><a href="{{ url('/login') }}">Login</a></li>
@@ -122,7 +164,7 @@
         @else
           <li class="logged">
             <a href="#">
-              {{ Auth::user()->name }}
+              Sr(a) {{ Auth::user()->name }}
             </a>
 		</li>
 		<li class="logout">
@@ -134,6 +176,7 @@
 				{{ csrf_field() }}
 			</form>
 		  </li>
+
         @endif
       </ul>
     </div>

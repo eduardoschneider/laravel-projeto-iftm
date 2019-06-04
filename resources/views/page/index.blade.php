@@ -5,10 +5,10 @@
 
     <div class="clearfix">
       <div class="pull-left">
-        <div class="lead">Page</div>
+        <div class="lead">Passageiros registrados no Sistema:</div>
       </div>
       <div class="pull-right">
-        <a href="/page/add" class="btn btn-success">Add new</a>
+        <a href="/page/add" class="btn btn-success">+</a>
       </div>
     </div>
 
@@ -75,12 +75,9 @@
             </time>
           </td>
           <td>
-            <div class="input-group-btn">
-              <a href="{{ route('page.edit', $page->id) }}" class="btn btn-primary">Edit</a>
-              <a href="{{ route('page.delete', $page->id) }}" class="btn btn-danger"
-                 onclick="return confirm('Are you sure to delete this page?');">
-                Delete
-              </a>
+            <div class="input-group-btn" style="text-align:center;">
+              <a href="{{ route('page.edit', $page->id) }}" class="btn btn-primary">Alterar</a> 
+              <a href="{{ route('page.delete', $page->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure to delete this page?');"> Deletar</a>
             </div>
           </td>
         </tr>
